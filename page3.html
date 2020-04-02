@@ -6,6 +6,46 @@
 </a>
 </body>
 
+<!-- BEGIN RTP TAGS --> 
+<script src="/rtp-tracking/jshub.js"></script>
+  <script src="/rtp-tracking/jshub-custom.js"></script>
+ <script>
+    // --> Make a  Decision for a location
+    // manually create an event to pass with the decisions request
+    var decisionEvent = {
+        "timestamp": jsHub.safe.getTimestamp(),
+        "eventType": "page-view",
+        "attributes": [{
+            "name": "page-name",
+            "value": document.title
+        }]
+    };
+        decisionEvent.attributes.push({"name": "member-id", "value": "12312345"})
+    var decisionEventString = encodeURI(jsHub.json.stringify(decisionEvent));
+    var decisionData = {
+        "locations": "recommended-plan",
+        "callback": "causataExecuteDecision",
+        "wait": true,
+        "api": "&event=" + decisionEventString
+    };
+        // make a decision request using the event created above
+    jsHub.configure('causata-decision', decisionData);
+    jsHub.trigger("make-decision");
+        // <-- End Make Causata Decision
+</script>
+<script>
+   jsHub.trigger('page-view', {"page-name": "Humana: Find A Doctor: Results",
+                                                                "page-url": "http://www.humana.com/FindADoctor",
+                                                                "website-intent": "Find A Doctor",
+                                                                "condition-searched": "Rheumatoid Arthritis",
+                                                                "browser": "Firefox",
+                                                                "operating-system": "Mac OS",
+                                                                 "channel": "Web",
+                                                                "member-id": "12312345"});
+
+</script>
+<!-- END RTP TAGS -->
+
 <footer>
   <p>Co-Browse Pin ID</p>
 <form>
