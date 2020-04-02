@@ -9,7 +9,21 @@
 <!-- BEGIN RTP TAGS --> 
 <script src="/rtp-tracking/jshub.js"></script>
   <script src="/rtp-tracking/jshub-custom.js"></script>
-
+<script>
+xhr = new XMLHttpRequest();
+var url = "https://rtpdemo.ceanice.com/_datacapture/realtime/v1/capture";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.setRequestHeader("X-Causata-Profile-Id", "member_id:12312345");
+xhr.onreadystatechange = function () { 
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var json = JSON.parse(xhr.responseText);
+        //console.log(json.email + ", " + json.name)
+    }
+}
+var data = JSON.stringify({"idType": "member-id","idValue": "12312345","channel": "web","events": [{"eventType": "page-view","timestamp": 158585480000,"attributes": [{"name": "page-name",  "value": "Humana: Find A Doctor: Results"},{"name": "page-url",  "value": "http://www.humana.com/FindADoctor"},{"name": "website-intent",  "value": "Find A Doctor"},{"name": "condition-searched",  "value": "Rheumatoid Arthritis"},{"name": "member-id",  "value": "12312345"}]}]});
+xhr.send(data);
+</script>
 <script>
    jsHub.trigger('page-view', {"page-name": "Humana: Find A Doctor: Results",
                                                                 "page-url": "http://www.humana.com/FindADoctor",
