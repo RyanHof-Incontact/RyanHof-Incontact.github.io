@@ -7,42 +7,21 @@
 </body>
 
 <!-- BEGIN RTP TAGS --> 
-<script src="/rtp-tracking/jshub.js"></script>
-  <script src="/rtp-tracking/jshub-custom.js"></script>
- <script>
-    // --> Make a  Decision for a location
-    // manually create an event to pass with the decisions request
-    var decisionEvent = {
-        "timestamp": jsHub.safe.getTimestamp(),
-        "eventType": "page-view",
-        "attributes": [{
-            "name": "page-name",
-            "value": document.title
-        }]
-    };
-        decisionEvent.attributes.push({"name": "member-id", "value": "12312345"})
-    var decisionEventString = encodeURI(jsHub.json.stringify(decisionEvent));
-    var decisionData = {
-        "locations": "recommended-plan",
-        "callback": "causataExecuteDecision",
-        "wait": true,
-        "api": "&event=" + decisionEventString
-    };
-        // make a decision request using the event created above
-    jsHub.configure('causata-decision', decisionData);
-    jsHub.trigger("make-decision");
-        // <-- End Make Causata Decision
-</script>
 <script>
-   jsHub.trigger('page-view', {"page-name": "Humana: Find A Doctor: Results",
-                                                                "page-url": "http://www.humana.com/FindADoctor",
-                                                                "website-intent": "Find A Doctor",
-                                                                "condition-searched": "Rheumatoid Arthritis",
-                                                                "browser": "Firefox",
-                                                                "operating-system": "Mac OS",
-                                                                 "channel": "Web",
-                                                                "member-id": "12312345"});
-
+xhr = new XMLHttpRequest();
+var url = "https://rtpdemo.ceanice.com/_datacapture/realtime/v1/capture";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.setRequestHeader("X-Causata-Profile-Id", "member_id:12312345");
+xhr.onreadystatechange = function () { 
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var json = JSON.parse(xhr.responseText);
+        //console.log(json.email + ", " + json.name)
+    }
+}
+var data = JSON.stringify({"idType": "member-id","idValue": "12312345","channel": "web","events": [{"eventType": "page-view","timestamp": 158585480000,"attributes": [{"name": "page-name",  "value": "Humana: Find A Doctor: Results"},{"name": "page-url",  "value": "http://www.humana.com/FindADoctor"},{"name": "website-intent",  "value": "Find A Doctor"},{"name": "condition-searched",  "value": "Rheumatoid Arthritis"},{"name": "member-id",  "value": "12312345"}]}]});
+xhr.send(data);
+</script>
 </script>
 <!-- END RTP TAGS -->
 
