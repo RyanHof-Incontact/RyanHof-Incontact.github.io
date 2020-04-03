@@ -6,14 +6,14 @@
 </a>
 </body>
 
-<!-- BEGIN RTP TAGS --> 
+<!-- BEGIN RTP TAGS -->
 <script>
 xhr = new XMLHttpRequest();
 var url = "https://rtpdemo.ceanice.com/_datacapture/realtime/v1/capture";
 xhr.open("POST", url, true);
 xhr.setRequestHeader("Content-type", "application/json");
 xhr.setRequestHeader("X-Causata-Profile-Id", "member_id:12312345");
-xhr.onreadystatechange = function () { 
+xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
         var json = JSON.parse(xhr.responseText);
         //console.log(json.email + ", " + json.name)
@@ -25,11 +25,6 @@ xhr.send(data);
 <!-- END RTP TAGS -->
 
 <footer>
-  <p>Co-Browse Pin ID</p>
-<form>
-  <input type="text">
-  <input type="submit" value="Enter">
-</form>
 <script type = "text/javascript" src = 'https://home-c32.nice-incontact.com/inContact/ChatClient/js/embed.min.js'></script>
 <script type ="text/javascript">
 icPatronChat.init({serverHost:'https://home-c32.nice-incontact.com',bus_no:4596619,poc:'d7ac98c3-b143-47a3-b7ea-91ef9cb4abee',params:['FirstName','Last Name','first.last@company.com',555-555-5555]});
