@@ -2,7 +2,7 @@
   </header>
 <body>
 <a href="page4.html">
-<img src='https://lh3.googleusercontent.com/1xhG0l3OpUyJHFJpVMOks1pjSiK1teoh3xdLrsTv8VKmMS0-LT-12cEZreMkE6d80GiQRp655hMHEKcM27v90JosrtiMlh2gmY_EE6YmHEIjCSvzF6gs3s7EVVjOOOnT2d06rzvcCA=w2400' width=100% height=100% />
+<img src='https://lh3.googleusercontent.com/1xhG0l3OpUyJHFJpVMOks1pjSiK1teoh3xdLrsTv8VKmMS0-LT-12cEZreMkE6d80GiQRp655hMHEKcM27v90JosrtiMlh2gmY_EE6YmHEIjCSvzF6gs3s7EVVjOOOnT2d06rzvcCA=w2400' />
 </a>
 </body>
 
@@ -30,16 +30,31 @@ xhr.send(data);
 icPatronChat.init({serverHost:'https://home-c32.nice-incontact.com',bus_no:4596619,poc:'d7ac98c3-b143-47a3-b7ea-91ef9cb4abee',params:['FirstName','Last Name','first.last@company.com',555-555-5555]});
 </script>
 
-<!-- COMMENTED OUT VERGIC TAG 
-<!-- Verigc
-<!-- START PSPLUGIN SCRIPT
-<!-- <script type="text/javascript">
-<!-- (function(server,psID){
-  var s=document.createElement('script');
-  s.type='text/javascript';
-  s.src=server+'/'+psID+'/ps.js';
-  document.getElementsByTagName('head')[0].appendChild(s);
-}('https://content.psplugin.com', 'D70BB365-3C4A-4194-9134-48AD071AA6BF'));
-<!-- </script> -->
+<!-- START Surfly SCRIPT -->
+<!-- Commented Out Surfly CoBrowse Functionality
+<script>
+(function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
+l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
+l.src='https://surfly-us.com/surfly.js';y.parentNode.insertBefore(l,y);})
+(window,document,'script','Surfly');
+
+var settings = {
+// Surfly session options can be set here, or at the Company/Plan levels.
+widget_key:'f0de30d80ea04a40894c023e4ba05afd',
+};
+
+Surfly.init(settings, function(initResult) {
+    if (initResult.success) {
+        // API calls can now be made!
+        if (!Surfly.isInsideSession) {
+            Surfly.button();
+        }
+    }
+    else{
+        console.log("Surfly was unable to initialize properly.")
+    }
+});
+</script>
+-->
 
 </footer>
