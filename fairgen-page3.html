@@ -1,0 +1,60 @@
+<header>
+  </header>
+<body>
+  <center>
+<a href="page4.html">
+<img src='https://lh3.googleusercontent.com/5iP8AOlvE_250-3rMWEZIjqRS3kL2EDCRWHwU1sbjzLIj6l_ivILaUvzJeqdHQSrKWEm21wKVR_AQmfo0RDsJtCz3K-zPz1WX3GoyTrl0WRe2fq8zSmHTaay-bpXaUffVj42YdPbxQ=w2400' />
+</a>
+</center>
+</body>
+
+<!-- BEGIN RTP TAGS -->
+<script>
+xhr = new XMLHttpRequest();
+var url = "https://rtpdemo.ceanice.com/_datacapture/realtime/v1/capture";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.setRequestHeader("X-Causata-Profile-Id", "member_id:12312345");
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var json = JSON.parse(xhr.responseText);
+        //console.log(json.email + ", " + json.name)
+    }
+}
+var data = JSON.stringify({"idType": "member-id","idValue": "12312346","channel": "web","events": [{"eventType": "page-view","timestamp": 158585480000,"attributes": [{"name": "page-name",  "value": "FairGen Health: Find A Doctor: Results"},{"name": "page-url",  "value": "http://www.fairgen.com/FindADoctor"},{"name": "website-intent",  "value": "Find A Doctor"},{"name": "humana-plan-name",  "value": "Gold Plus HMO"},{"name": "condition-searched",  "value": "Rheumatoid Arthritis"},{"name": "member-id",  "value": "12312346"}]}]});
+xhr.send(data);
+</script>
+<!-- END RTP TAGS -->
+
+<footer>
+<script type = "text/javascript" src = 'https://home-c32.nice-incontact.com/inContact/ChatClient/js/embed.min.js'></script>
+<script type ="text/javascript">
+icPatronChat.init({serverHost:'https://home-c32.nice-incontact.com',bus_no:4596619,poc:'d7ac98c3-b143-47a3-b7ea-91ef9cb4abee',params:['FirstName','Last Name','first.last@company.com',555-555-5555]});
+</script>
+
+<!-- START Surfly SCRIPT -->
+<!-- Commented Out Surfly CoBrowse Functionality
+<script>
+(function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
+l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
+l.src='https://surfly-us.com/surfly.js';y.parentNode.insertBefore(l,y);})
+(window,document,'script','Surfly');
+var settings = {
+// Surfly session options can be set here, or at the Company/Plan levels.
+widget_key:'f0de30d80ea04a40894c023e4ba05afd',
+};
+Surfly.init(settings, function(initResult) {
+    if (initResult.success) {
+        // API calls can now be made!
+        if (!Surfly.isInsideSession) {
+            Surfly.button();
+        }
+    }
+    else{
+        console.log("Surfly was unable to initialize properly.")
+    }
+});
+</script>
+-->
+
+</footer>
